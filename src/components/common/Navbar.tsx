@@ -145,7 +145,7 @@ export default function Navbar(props: Props) {
           </Box>
         </Toolbar>
       </AppBar>
-      <Toolbar />
+
       <Box component="nav">
         <Drawer
           container={container}

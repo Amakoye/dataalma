@@ -199,6 +199,12 @@ export const themeSettings = (mode: PaletteMode) => {
       h6: {
         fontSize: 14,
       },
+      body1: {
+        fontSize: 18,
+        fontWeight: 300,
+        lineHeight: 2,
+        color: colors.grey[500],
+      },
     },
   };
 };

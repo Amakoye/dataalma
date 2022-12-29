@@ -10,6 +10,7 @@ export default class MyDocument extends Document {
           {/* PWA primary color */}
           <meta name="theme-color" content={""} />
           <link rel="shortcut icon" href="/favicon.ico" />
+
           <meta name="emotion-insertion-point" content="" />
           {(this.props as any).emotionStyleTags}
         </Head>
