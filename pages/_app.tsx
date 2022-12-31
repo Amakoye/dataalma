@@ -2,6 +2,7 @@ import { CacheProvider, EmotionCache, Theme } from "@emotion/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import Footer from "../src/components/common/Footer";
 import Navbar from "../src/components/common/Navbar";
 import createEmotionCache from "../src/utils/createEmotionCache";
 import { ColorModeContext, useMode } from "../src/utils/theme";
@@ -27,6 +28,7 @@ export default function MyApp(props: MyAppProps) {
           <CssBaseline />
           <Navbar />
           <Component {...pageProps} />
+          <Footer />
         </ThemeProvider>
       </ColorModeContext.Provider>
     </CacheProvider>
