@@ -1,4 +1,4 @@
-import { Grid, useTheme } from "@mui/material";
+import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
@@ -19,6 +19,7 @@ import { tokens } from "../src/utils/theme";
 import { validationSchema } from "../src/utils/utils";
 const Home: NextPage = () => {
   const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const colors = tokens(theme.palette.mode);
 
   const formik = useFormik({
@@ -39,19 +40,32 @@ const Home: NextPage = () => {
       <Box
         sx={{
           display: "flex",
-          height: "90vh",
+          flexDirection: matchesSM ? "column" : "row",
+          height: matchesSM ? undefined : "90vh",
           alignItems: "center",
+          marginTop: matchesSM ? "3em" : undefined,
           background: ` radial-gradient(circle, rgba(213,218,247,1) 0%, rgba(255,255,255,1) 100%, rgba(0,0,0,0) 100%)`,
-          paddingRight: "5em",
-          paddingLeft: "5em",
-          gap: 20,
+          paddingRight: matchesSM ? "5px" : "5em",
+          paddingLeft: matchesSM ? "5px" : "5em",
+          gap: matchesSM ? 2 : 20,
         }}
       >
-        <Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: matchesSM ? "center" : undefined,
+          }}
+        >
           <Typography
             variant="h1"
             color="primary"
-            sx={{ fontSize: 50, fontWeight: "bold", letterSpacing: 10 }}
+            textAlign={matchesSM ? "center" : undefined}
+            sx={{
+              fontSize: matchesSM ? 30 : 50,
+              fontWeight: "bold",
+              letterSpacing: matchesSM ? 5 : 10,
+            }}
           >
             <Typewriter
               onInit={(typewriter) => {
@@ -65,26 +79,31 @@ const Home: NextPage = () => {
           </Typography>
           <Typography
             variant="body1"
+            textAlign={matchesSM ? "center" : undefined}
             sx={{
               marginBottom: 2,
+              fontSize: matchesSM ? 16 : undefined,
             }}
           >
-            Using data to create insights and cybersecurity services for the
-            success of businesses.
-            <br />
+            Using data to create insights and cyber security services for the
+            success of businesses.{!matchesSM && <br />}
             We provide data-driven solutions to companies and businesses by use
-            of machine learning <br /> tools. We equally offer research services
-            and automated cyber security detection solutions <br /> to
-            businesses.
+            of machine learning {!matchesSM && <br />} tools. We equally offer
+            research services and automated cyber security detection solutions
+            {!matchesSM && <br />} to businesses.
           </Typography>
           <Button
             variant="contained"
             disableRipple
             sx={{
-              fontSize: 18,
+              fontSize: matchesSM ? 16 : 18,
               letterSpacing: 2,
+              width: matchesSM ? 135 : 155,
               textTransform: "none",
-              padding: "5px 20px 5px 20px",
+              paddingTop: matchesSM ? undefined : "5px",
+              paddingBottom: matchesSM ? undefined : "5px",
+              paddingRight: matchesSM ? undefined : "20px",
+              paddingLeft: matchesSM ? undefined : "20px",
               "&:hover": {
                 background: colors.cerulanBlue[500],
               },
@@ -96,6 +115,7 @@ const Home: NextPage = () => {
 
         <Box>
           <Image
+            height={matchesSM ? 300 : undefined}
             style={{ borderRadius: "50%" }}
             src={HeroImage}
             alt="Digital presentation"
@@ -108,35 +128,57 @@ const Home: NextPage = () => {
           display: "flex",
           flexDirection: "column",
           background: theme.palette.grey[100],
-          paddingTop: "30px",
-          borderTopLeftRadius: 40,
-          borderTopRightRadius: 40,
+          paddingTop: matchesSM ? "10px" : "30px",
+          borderTopLeftRadius: matchesSM ? 20 : 40,
+          borderTopRightRadius: matchesSM ? 20 : 40,
         }}
       >
         <Typography variant="h2" textAlign="center" color="primary" mb="20px">
           Services
         </Typography>
-        <Grid container direction="column" sx={{ padding: "0 5em 0 5em" }}>
+        <Grid
+          container
+          direction="column"
+          sx={{
+            paddingTop: 0,
+            paddingBottom: 0,
+            paddingRight: matchesSM ? "5px" : "5em",
+            paddingLeft: matchesSM ? "5px" : "5em",
+          }}
+        >
           {/* IT Consulting block */}
           <Grid item>
-            <Grid container direction="row">
+            <Grid
+              container
+              direction={matchesSM ? "column" : "row"}
+              alignItems={matchesSM ? "center" : undefined}
+            >
               <Grid item>
-                <Typography variant="h4" color="primary">
+                <Typography
+                  variant="h4"
+                  textAlign={matchesSM ? "center" : undefined}
+                  color="primary"
+                >
                   IT Consulting
                 </Typography>
                 <Typography
+                  variant="body1"
+                  textAlign={matchesSM ? "justify" : undefined}
                   style={{
                     marginTop: "10px",
+                    fontSize: matchesSM ? 16 : undefined,
+                    marginRight: matchesSM ? "5px" : undefined,
+                    marginLeft: matchesSM ? "5px" : undefined,
                   }}
                 >
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  nemo repellendus excepturi <br />
+                  nemo repellendus excepturi{!matchesSM && <br />}
                   voluptatibus minus explicabo fugiat, consequuntur nulla id
-                  nisi cumque quam. Exercitationem <br />
-                  ab labore tempore, iste quis eius consequuntur unde voluptatum
-                  in aliquam, delectus assumenda? <br /> Provident sint quisquam
-                  vel temporibus eaque vero reiciendis veritatis possimus
-                  exercitationem.
+                  nisi cumque quam. Exercitationem{!matchesSM && <br />} ab
+                  labore tempore, iste quis eius consequuntur unde voluptatum in
+                  aliquam, delectus assumenda? {!matchesSM && <br />} Provident
+                  sint quisquam vel temporibus eaque vero reiciendis veritatis
+                  possimus exercitationem.
                 </Typography>
               </Grid>
               <Grid item>
@@ -148,28 +190,42 @@ const Home: NextPage = () => {
           <Grid
             item
             sx={{
-              marginTop: "20px",
+              marginTop: matchesSM ? "10px" : "20px",
               marginBottom: "20px",
             }}
           >
-            <Grid container direction="row" justifyContent="flex-end">
+            <Grid
+              container
+              direction={matchesSM ? "column" : "row"}
+              alignItems={matchesSM ? "center" : undefined}
+              justifyContent={matchesSM ? undefined : "flex-end"}
+            >
               <Grid item>
-                <Typography variant="h4" color="primary">
+                <Typography
+                  variant="h4"
+                  textAlign={matchesSM ? "center" : undefined}
+                  color="primary"
+                >
                   Business Analytics
                 </Typography>
                 <Typography
+                  variant="body1"
+                  textAlign={matchesSM ? "justify" : undefined}
                   style={{
                     marginTop: "10px",
+                    fontSize: matchesSM ? 16 : undefined,
+                    marginRight: matchesSM ? "5px" : undefined,
+                    marginLeft: matchesSM ? "5px" : undefined,
                   }}
                 >
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  nemo repellendus excepturi <br />
+                  nemo repellendus excepturi {!matchesSM && <br />}
                   voluptatibus minus explicabo fugiat, consequuntur nulla id
-                  nisi cumque quam. Exercitationem <br />
+                  nisi cumque quam. Exercitationem{!matchesSM && <br />}
                   ab labore tempore, iste quis eius consequuntur unde voluptatum
-                  in aliquam, delectus assumenda? <br /> Provident sint quisquam
-                  vel temporibus eaque vero reiciendis veritatis possimus
-                  exercitationem.
+                  in aliquam, delectus assumenda? {!matchesSM && <br />}{" "}
+                  Provident sint quisquam vel temporibus eaque vero reiciendis
+                  veritatis possimus exercitationem.
                 </Typography>
               </Grid>
               <Grid item>
@@ -184,24 +240,37 @@ const Home: NextPage = () => {
 
           {/* Application development block */}
           <Grid item>
-            <Grid container direction="row">
+            <Grid
+              container
+              direction={matchesSM ? "column" : "row"}
+              alignItems={matchesSM ? "center" : undefined}
+            >
               <Grid item>
-                <Typography variant="h4" color="primary">
+                <Typography
+                  variant="h4"
+                  textAlign={matchesSM ? "center" : undefined}
+                  color="primary"
+                >
                   Application development
                 </Typography>
                 <Typography
+                  variant="body1"
+                  textAlign={matchesSM ? "justify" : undefined}
                   style={{
                     marginTop: "10px",
+                    fontSize: matchesSM ? 16 : undefined,
+                    marginRight: matchesSM ? "5px" : undefined,
+                    marginLeft: matchesSM ? "5px" : undefined,
                   }}
                 >
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  nemo repellendus excepturi <br />
+                  nemo repellendus excepturi{!matchesSM && <br />}
                   voluptatibus minus explicabo fugiat, consequuntur nulla id
-                  nisi cumque quam. Exercitationem <br />
+                  nisi cumque quam. Exercitationem{!matchesSM && <br />}
                   ab labore tempore, iste quis eius consequuntur unde voluptatum
-                  in aliquam, delectus assumenda? <br /> Provident sint quisquam
-                  vel temporibus eaque vero reiciendis veritatis possimus
-                  exercitationem.
+                  in aliquam, delectus assumenda? {!matchesSM && <br />}{" "}
+                  Provident sint quisquam vel temporibus eaque vero reiciendis
+                  veritatis possimus exercitationem.
                 </Typography>
               </Grid>
               <Grid item>
@@ -215,24 +284,38 @@ const Home: NextPage = () => {
           </Grid>
           {/* Database development block */}
           <Grid item sx={{ marginTop: "20px" }}>
-            <Grid container direction="row" justifyContent="flex-end">
+            <Grid
+              container
+              direction={matchesSM ? "column" : "row"}
+              alignItems={matchesSM ? "center" : undefined}
+              justifyContent={matchesSM ? undefined : "flex-end"}
+            >
               <Grid item>
-                <Typography variant="h4" color="primary">
+                <Typography
+                  variant="h4"
+                  textAlign={matchesSM ? "center" : undefined}
+                  color="primary"
+                >
                   Database development
                 </Typography>
                 <Typography
+                  variant="body1"
+                  textAlign={matchesSM ? "justify" : undefined}
                   style={{
                     marginTop: "10px",
+                    fontSize: matchesSM ? 16 : undefined,
+                    marginRight: matchesSM ? "5px" : undefined,
+                    marginLeft: matchesSM ? "5px" : undefined,
                   }}
                 >
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  nemo repellendus excepturi <br />
+                  nemo repellendus excepturi {!matchesSM && <br />}
                   voluptatibus minus explicabo fugiat, consequuntur nulla id
-                  nisi cumque quam. Exercitationem <br />
+                  nisi cumque quam. Exercitationem {!matchesSM && <br />}
                   ab labore tempore, iste quis eius consequuntur unde voluptatum
-                  in aliquam, delectus assumenda? <br /> Provident sint quisquam
-                  vel temporibus eaque vero reiciendis veritatis possimus
-                  exercitationem.
+                  in aliquam, delectus assumenda? {!matchesSM && <br />}
+                  Provident sint quisquam vel temporibus eaque vero reiciendis
+                  veritatis possimus exercitationem.
                 </Typography>
               </Grid>
               <Grid item>
@@ -250,40 +333,56 @@ const Home: NextPage = () => {
       <Box
         sx={{
           display: "flex",
+          flexDirection: matchesSM ? "column" : "row",
           paddingTop: "15px",
-          paddingLeft: "5em",
-          paddingRight: "5em",
+          paddingLeft: matchesSM ? undefined : "5em",
+          paddingRight: matchesSM ? undefined : "5em",
           background: colors.peranoBlue[100],
           alignItems: "center",
           height: "80vh",
         }}
       >
-        <Box>
-          <Typography variant="h2" color="primary">
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: matchesSM ? "center" : undefined,
+          }}
+        >
+          <Typography
+            variant="h2"
+            color="primary"
+            textAlign={matchesSM ? "center" : undefined}
+          >
             About us
           </Typography>
           <Typography
             variant="body1"
+            textAlign={matchesSM ? "center" : undefined}
             sx={{
               marginBottom: 2,
+              fontSize: matchesSM ? 16 : undefined,
             }}
           >
             Data Alma is a technology consultancy company that provides
-            data-driven
-            <br /> solutions to companies and businesses by use of machine
-            learning tools.
-            <br /> We equally offer research services and automated cyber
-            security detection <br />
+            data-driven{!matchesSM && <br />} ConsultingImagesolutions to
+            companies and businesses by use of machine learning tools.
+            {!matchesSM && <br />} We equally offer research services and
+            automated cyber security detection {!matchesSM && <br />}
             solutions to businesses.
           </Typography>
           <Button
             variant="contained"
             disableRipple
             sx={{
-              fontSize: 18,
+              fontSize: matchesSM ? 16 : 18,
               letterSpacing: 2,
+              width: matchesSM ? 135 : 155,
               textTransform: "none",
-              padding: "5px 20px 5px 20px",
+              paddingTop: matchesSM ? undefined : "5px",
+              paddingBottom: matchesSM ? undefined : "5px",
+              paddingRight: matchesSM ? undefined : "20px",
+              paddingLeft: matchesSM ? undefined : "20px",
               "&:hover": {
                 background: colors.cerulanBlue[500],
               },
@@ -295,6 +394,7 @@ const Home: NextPage = () => {
 
         <Box>
           <Image
+            height={matchesSM ? 300 : undefined}
             style={{ borderRadius: "50%" }}
             src={AboutImage}
             alt="Digital presentation"
@@ -305,30 +405,53 @@ const Home: NextPage = () => {
       <Box
         sx={{
           display: "flex",
+          flexDirection: matchesSM ? "column-reverse" : "row",
           justifyContent: "space-between",
           paddingTop: "15px",
-          paddingLeft: "5em",
-          paddingRight: "5em",
+          paddingLeft: matchesSM ? undefined : "5em",
+          paddingRight: matchesSM ? undefined : "5em",
           alignItems: "center",
-          height: "100vh",
+          height: matchesSM ? undefined : "100vh",
         }}
       >
         <Box>
-          <Image src={ContactImage} alt="Service 24 7" />
+          <Image
+            height={matchesSM ? 300 : undefined}
+            src={ContactImage}
+            alt="Service 24 7"
+          />
         </Box>
-        <Box>
-          <Typography variant="h2" color="primary">
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: matchesSM ? "center" : undefined,
+          }}
+        >
+          <Typography
+            variant="h2"
+            textAlign={matchesSM ? "center" : undefined}
+            color="primary"
+          >
             Contact us
           </Typography>
           <Typography
             variant="body1"
-            sx={{ marginTop: "10px", marginBottom: "20px" }}
+            textAlign={matchesSM ? "center" : undefined}
+            sx={{
+              marginTop: "10px",
+              /*  marginRight: matchesSM ? "5px" : undefined,
+              marginLeft: matchesSM ? "5px" : undefined, */
+              marginBottom: "20px",
+              fontSize: matchesSM ? 16 : undefined,
+            }}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
             architecto aliquam recusandae
-            <br /> molestias deserunt quae repudiandae veniam? Animi cupiditate
-            accusamus odit numquam nulla <br /> aperiam dolore similiqueaut eos
-            facere deserunt ullam iste omnis repellat molestiae.
+            {!matchesSM && <br />} molestias deserunt quae repudiandae veniam?
+            Animi cupiditate accusamus odit numquam nulla {!matchesSM && <br />}{" "}
+            aperiam dolore similiqueaut eos facere deserunt ullam iste omnis
+            repellat molestiae.
           </Typography>
           <Box
             component="form"
@@ -336,8 +459,9 @@ const Home: NextPage = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              width: 800,
+              width: matchesSM ? 350 : 800,
               gap: 2,
+              marginBottom: matchesSM ? "10px" : undefined,
             }}
           >
             <TextField

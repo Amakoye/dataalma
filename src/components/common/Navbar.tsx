@@ -3,18 +3,20 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
+import Hidden from "@mui/material/Hidden";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import { Typography, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import logo from "../../assets/logo.png";
 import { tokens } from "../../utils/theme";
 
@@ -108,41 +110,43 @@ export default function Navbar(props: Props) {
               <Image src={logo} alt="data alma logo" height={60} />
             </Box>
           )}
-          <Box
-            sx={{
-              marginLeft: "auto",
-              marginRight: "40px",
-              display: "flex",
-              gap: 5,
-            }}
-          >
-            {navItems.map((item) => (
-              <NextLink
-                href={item.link}
-                passHref
-                key={item.link}
-                style={{
-                  textDecoration: "none",
-                  color:
-                    router.pathname === item.link
-                      ? `${colors.cerulanBlue[600]}`
-                      : `${colors.primary[500]}`,
-                }}
-              >
-                <Typography
-                  variant="h4"
-                  sx={{
-                    fontSize: 18,
-                    "&:hover": {
-                      color: `${colors.cerulanBlue[600]}`,
-                    },
+          <Hidden smDown>
+            <Box
+              sx={{
+                marginLeft: "auto",
+                marginRight: "40px",
+                display: "flex",
+                gap: 5,
+              }}
+            >
+              {navItems.map((item) => (
+                <NextLink
+                  href={item.link}
+                  passHref
+                  key={item.link}
+                  style={{
+                    textDecoration: "none",
+                    color:
+                      router.pathname === item.link
+                        ? `${colors.cerulanBlue[600]}`
+                        : `${colors.primary[500]}`,
                   }}
                 >
-                  {item.name}
-                </Typography>
-              </NextLink>
-            ))}
-          </Box>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontSize: 18,
+                      "&:hover": {
+                        color: `${colors.cerulanBlue[600]}`,
+                      },
+                    }}
+                  >
+                    {item.name}
+                  </Typography>
+                </NextLink>
+              ))}
+            </Box>
+          </Hidden>
         </Toolbar>
       </AppBar>
 
