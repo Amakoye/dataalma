@@ -56,8 +56,6 @@ export default function Navbar(props: Props) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
-  console.log(router.pathname);
-
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };

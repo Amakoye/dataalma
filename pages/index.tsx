@@ -1,6 +1,10 @@
-import { Grid, useMediaQuery, useTheme } from "@mui/material";
+import EmailIcon from "@mui/icons-material/Email";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import { useMediaQuery, useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -9,12 +13,10 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import Typewriter from "typewriter-effect";
 import AboutImage from "../src/assets/About.png";
-import AnalyticsImage from "../src/assets/Analytics.png";
-import ApplicationdevImage from "../src/assets/Applicationdev.png";
-import ConsultingImage from "../src/assets/Consulting.png";
-import DatabasedevImage from "../src/assets/Databasedev.png";
 import HeroImage from "../src/assets/HomepageHeroImage.gif";
 import ContactImage from "../src/assets/Service_ 24_7.gif";
+import Learnmore from "../src/components/common/Learnmore";
+import Services from "../src/components/pages/Services";
 import { tokens } from "../src/utils/theme";
 import { validationSchema } from "../src/utils/utils";
 const Home: NextPage = () => {
@@ -92,25 +94,8 @@ const Home: NextPage = () => {
             research services and automated cyber security detection solutions
             {!matchesSM && <br />} to businesses.
           </Typography>
-          <Button
-            variant="contained"
-            disableRipple
-            sx={{
-              fontSize: matchesSM ? 16 : 18,
-              letterSpacing: 2,
-              width: matchesSM ? 135 : 155,
-              textTransform: "none",
-              paddingTop: matchesSM ? undefined : "5px",
-              paddingBottom: matchesSM ? undefined : "5px",
-              paddingRight: matchesSM ? undefined : "20px",
-              paddingLeft: matchesSM ? undefined : "20px",
-              "&:hover": {
-                background: colors.cerulanBlue[500],
-              },
-            }}
-          >
-            Learn more
-          </Button>
+
+          <Learnmore toLink="/services" />
         </Box>
 
         <Box>
@@ -123,212 +108,7 @@ const Home: NextPage = () => {
         </Box>
       </Box>
       {/* Services */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          background: theme.palette.grey[100],
-          paddingTop: matchesSM ? "10px" : "30px",
-          borderTopLeftRadius: matchesSM ? 20 : 40,
-          borderTopRightRadius: matchesSM ? 20 : 40,
-        }}
-      >
-        <Typography variant="h2" textAlign="center" color="primary" mb="20px">
-          Services
-        </Typography>
-        <Grid
-          container
-          direction="column"
-          sx={{
-            paddingTop: 0,
-            paddingBottom: 0,
-            paddingRight: matchesSM ? "5px" : "5em",
-            paddingLeft: matchesSM ? "5px" : "5em",
-          }}
-        >
-          {/* IT Consulting block */}
-          <Grid item>
-            <Grid
-              container
-              direction={matchesSM ? "column" : "row"}
-              alignItems={matchesSM ? "center" : undefined}
-            >
-              <Grid item>
-                <Typography
-                  variant="h4"
-                  textAlign={matchesSM ? "center" : undefined}
-                  color="primary"
-                >
-                  IT Consulting
-                </Typography>
-                <Typography
-                  variant="body1"
-                  textAlign={matchesSM ? "justify" : undefined}
-                  style={{
-                    marginTop: "10px",
-                    fontSize: matchesSM ? 16 : undefined,
-                    marginRight: matchesSM ? "5px" : undefined,
-                    marginLeft: matchesSM ? "5px" : undefined,
-                  }}
-                >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  nemo repellendus excepturi{!matchesSM && <br />}
-                  voluptatibus minus explicabo fugiat, consequuntur nulla id
-                  nisi cumque quam. Exercitationem{!matchesSM && <br />} ab
-                  labore tempore, iste quis eius consequuntur unde voluptatum in
-                  aliquam, delectus assumenda? {!matchesSM && <br />} Provident
-                  sint quisquam vel temporibus eaque vero reiciendis veritatis
-                  possimus exercitationem.
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Image height={250} src={ConsultingImage} alt="consulting" />
-              </Grid>
-            </Grid>
-          </Grid>
-          {/* Business analytics block */}
-          <Grid
-            item
-            sx={{
-              marginTop: matchesSM ? "10px" : "20px",
-              marginBottom: "20px",
-            }}
-          >
-            <Grid
-              container
-              direction={matchesSM ? "column" : "row"}
-              alignItems={matchesSM ? "center" : undefined}
-              justifyContent={matchesSM ? undefined : "flex-end"}
-            >
-              <Grid item>
-                <Typography
-                  variant="h4"
-                  textAlign={matchesSM ? "center" : undefined}
-                  color="primary"
-                >
-                  Business Analytics
-                </Typography>
-                <Typography
-                  variant="body1"
-                  textAlign={matchesSM ? "justify" : undefined}
-                  style={{
-                    marginTop: "10px",
-                    fontSize: matchesSM ? 16 : undefined,
-                    marginRight: matchesSM ? "5px" : undefined,
-                    marginLeft: matchesSM ? "5px" : undefined,
-                  }}
-                >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  nemo repellendus excepturi {!matchesSM && <br />}
-                  voluptatibus minus explicabo fugiat, consequuntur nulla id
-                  nisi cumque quam. Exercitationem{!matchesSM && <br />}
-                  ab labore tempore, iste quis eius consequuntur unde voluptatum
-                  in aliquam, delectus assumenda? {!matchesSM && <br />}{" "}
-                  Provident sint quisquam vel temporibus eaque vero reiciendis
-                  veritatis possimus exercitationem.
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Image
-                  height={250}
-                  src={AnalyticsImage}
-                  alt="Business analytics"
-                />
-              </Grid>
-            </Grid>
-          </Grid>
-
-          {/* Application development block */}
-          <Grid item>
-            <Grid
-              container
-              direction={matchesSM ? "column" : "row"}
-              alignItems={matchesSM ? "center" : undefined}
-            >
-              <Grid item>
-                <Typography
-                  variant="h4"
-                  textAlign={matchesSM ? "center" : undefined}
-                  color="primary"
-                >
-                  Application development
-                </Typography>
-                <Typography
-                  variant="body1"
-                  textAlign={matchesSM ? "justify" : undefined}
-                  style={{
-                    marginTop: "10px",
-                    fontSize: matchesSM ? 16 : undefined,
-                    marginRight: matchesSM ? "5px" : undefined,
-                    marginLeft: matchesSM ? "5px" : undefined,
-                  }}
-                >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  nemo repellendus excepturi{!matchesSM && <br />}
-                  voluptatibus minus explicabo fugiat, consequuntur nulla id
-                  nisi cumque quam. Exercitationem{!matchesSM && <br />}
-                  ab labore tempore, iste quis eius consequuntur unde voluptatum
-                  in aliquam, delectus assumenda? {!matchesSM && <br />}{" "}
-                  Provident sint quisquam vel temporibus eaque vero reiciendis
-                  veritatis possimus exercitationem.
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Image
-                  height={250}
-                  src={ApplicationdevImage}
-                  alt="application development"
-                />
-              </Grid>
-            </Grid>
-          </Grid>
-          {/* Database development block */}
-          <Grid item sx={{ marginTop: "20px" }}>
-            <Grid
-              container
-              direction={matchesSM ? "column" : "row"}
-              alignItems={matchesSM ? "center" : undefined}
-              justifyContent={matchesSM ? undefined : "flex-end"}
-            >
-              <Grid item>
-                <Typography
-                  variant="h4"
-                  textAlign={matchesSM ? "center" : undefined}
-                  color="primary"
-                >
-                  Database development
-                </Typography>
-                <Typography
-                  variant="body1"
-                  textAlign={matchesSM ? "justify" : undefined}
-                  style={{
-                    marginTop: "10px",
-                    fontSize: matchesSM ? 16 : undefined,
-                    marginRight: matchesSM ? "5px" : undefined,
-                    marginLeft: matchesSM ? "5px" : undefined,
-                  }}
-                >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  nemo repellendus excepturi {!matchesSM && <br />}
-                  voluptatibus minus explicabo fugiat, consequuntur nulla id
-                  nisi cumque quam. Exercitationem {!matchesSM && <br />}
-                  ab labore tempore, iste quis eius consequuntur unde voluptatum
-                  in aliquam, delectus assumenda? {!matchesSM && <br />}
-                  Provident sint quisquam vel temporibus eaque vero reiciendis
-                  veritatis possimus exercitationem.
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Image
-                  height={250}
-                  src={DatabasedevImage}
-                  alt="database development"
-                />
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Box>
+      <Services />
       {/* About */}
       <Box
         sx={{
@@ -339,7 +119,7 @@ const Home: NextPage = () => {
           paddingRight: matchesSM ? undefined : "5em",
           background: colors.peranoBlue[100],
           alignItems: "center",
-          height: "80vh",
+          height: matchesSM ? undefined : "80vh",
         }}
       >
         <Box
@@ -364,32 +144,33 @@ const Home: NextPage = () => {
               fontSize: matchesSM ? 16 : undefined,
             }}
           >
-            Data Alma is a technology consultancy company that provides
-            data-driven{!matchesSM && <br />} ConsultingImagesolutions to
-            companies and businesses by use of machine learning tools.
-            {!matchesSM && <br />} We equally offer research services and
-            automated cyber security detection {!matchesSM && <br />}
-            solutions to businesses.
+            Data Alma specializes in IT consulting. We provide a wide range of
+            IT-related services including business analytics,
+            {!matchesSM && <br />}
+            data protection and privacy services, network design and
+            implementation, cloud solutions, cybersecurity, and project
+            {!matchesSM && <br />}management. We have a team of experienced
+            professionals who work closely with clients to understand their
+            unique {!matchesSM && <br />}
+            needs and provide customized solutions to improve efficiency and
+            productivity.
           </Typography>
-          <Button
-            variant="contained"
-            disableRipple
+          <Typography
+            variant="body1"
+            textAlign={matchesSM ? "center" : undefined}
             sx={{
-              fontSize: matchesSM ? 16 : 18,
-              letterSpacing: 2,
-              width: matchesSM ? 135 : 155,
-              textTransform: "none",
-              paddingTop: matchesSM ? undefined : "5px",
-              paddingBottom: matchesSM ? undefined : "5px",
-              paddingRight: matchesSM ? undefined : "20px",
-              paddingLeft: matchesSM ? undefined : "20px",
-              "&:hover": {
-                background: colors.cerulanBlue[500],
-              },
+              marginBottom: 2,
+              fontSize: matchesSM ? 16 : undefined,
             }}
           >
-            Learn more
-          </Button>
+            Our team of experts uses cutting-edge technology, such as machine
+            learning and natural language processing, to help
+            {!matchesSM && <br />} clients gain a deeper understanding of their
+            customers, markets, and operations. They help businesses increase
+            revenue, {!matchesSM && <br />} improve efficiency, and gain a
+            competitive advantage.
+          </Typography>
+          <Learnmore toLink="/about" />
         </Box>
 
         <Box>
@@ -446,12 +227,7 @@ const Home: NextPage = () => {
               fontSize: matchesSM ? 16 : undefined,
             }}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
-            architecto aliquam recusandae
-            {!matchesSM && <br />} molestias deserunt quae repudiandae veniam?
-            Animi cupiditate accusamus odit numquam nulla {!matchesSM && <br />}{" "}
-            aperiam dolore similiqueaut eos facere deserunt ullam iste omnis
-            repellat molestiae.
+            Send us a quick message;
           </Typography>
           <Box
             component="form"
@@ -508,6 +284,76 @@ const Home: NextPage = () => {
             >
               Send message
             </Button>
+          </Box>
+
+          <Box
+            sx={{
+              marginTop: matchesSM ? "20px" : "30px",
+              display: "flex",
+              gap: "15px",
+              justifyContent: "center",
+            }}
+          >
+            <IconButton
+              LinkComponent={"a"}
+              href="https://www.linkedin.com/company/data-alma/"
+              target="_blank"
+              rel="no-referrer noreferrer"
+              disableRipple
+              sx={{
+                background: colors.primary[500],
+                "&:hover": {
+                  background: colors.cerulanBlue[500],
+                },
+              }}
+            >
+              <LinkedInIcon
+                sx={{
+                  fontSize: "30px",
+                  color: theme.palette.grey[100],
+                }}
+              />
+            </IconButton>
+            <IconButton
+              LinkComponent={"a"}
+              href="https://twitter.com/data_alma"
+              target="_blank"
+              rel="no-referrer noreferrer"
+              disableRipple
+              sx={{
+                background: colors.primary[500],
+                "&:hover": {
+                  background: colors.cerulanBlue[500],
+                },
+              }}
+            >
+              <TwitterIcon
+                sx={{
+                  fontSize: "30px",
+                  color: theme.palette.grey[100],
+                }}
+              />
+            </IconButton>
+            <IconButton
+              LinkComponent={"a"}
+              href="mailto:infodatalma@gmail.com"
+              target="_blank"
+              rel="no-referrer noreferrer"
+              disableRipple
+              sx={{
+                background: colors.primary[500],
+                "&:hover": {
+                  background: colors.cerulanBlue[500],
+                },
+              }}
+            >
+              <EmailIcon
+                sx={{
+                  fontSize: "30px",
+                  color: theme.palette.grey[100],
+                }}
+              />
+            </IconButton>
           </Box>
         </Box>
       </Box>
