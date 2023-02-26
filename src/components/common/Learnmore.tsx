@@ -28,6 +28,8 @@ const Learnmore = ({ toLink }: LearnmoreProps) => {
           marginTop: "10px",
           marginBottom: "10px",
           fontSize: "0.85em",
+          marginRight: "auto",
+          marginLeft: "auto",
           "&:hover": {
             background: colors.cerulanBlue[500],
           },

@@ -36,6 +36,9 @@ const Home: NextPage = () => {
       >
         <Box
           sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: matchesSM ? "center" : matchesMD ? "center" : undefined,
             width: matchesSM ? undefined : matchesMD ? undefined : "40%",
           }}
         >
@@ -64,7 +67,7 @@ const Home: NextPage = () => {
             textAlign={matchesSM ? "center" : "justify"}
             sx={{
               marginBottom: 2,
-              fontSize: matchesSM ? 16 : undefined,
+              fontSize: "1rem",
             }}
           >
             Using data to create insights and cyber security services for the
