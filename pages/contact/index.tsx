@@ -17,7 +17,7 @@ import { validationSchema } from "../../src/utils/utils";
 const Contact: NextPage = () => {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesMD = useMediaQuery(theme.breakpoints.between(768, 1100));
+  const matchesMD = useMediaQuery(theme.breakpoints.between(768, 1025));
   const colors = tokens(theme.palette.mode);
 
   const formik = useFormik({
