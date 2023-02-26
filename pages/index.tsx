@@ -36,7 +36,7 @@ const Home: NextPage = () => {
       >
         <Box
           sx={{
-            width: matchesMD ? undefined : "40%",
+            width: matchesSM ? undefined : matchesMD ? undefined : "40%",
           }}
         >
           <Typography
