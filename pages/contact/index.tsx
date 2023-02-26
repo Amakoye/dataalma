@@ -17,6 +17,7 @@ import { validationSchema } from "../../src/utils/utils";
 const Contact: NextPage = () => {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesMD = useMediaQuery(theme.breakpoints.between(768, 1100));
   const colors = tokens(theme.palette.mode);
 
   const formik = useFormik({
@@ -37,13 +38,18 @@ const Contact: NextPage = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: matchesSM ? "column-reverse" : "row",
+          flexDirection: matchesSM
+            ? "column-reverse"
+            : matchesMD
+            ? "column-reverse"
+            : "row",
           justifyContent: "space-between",
+          marginTop: matchesSM ? "5em" : matchesMD ? "10em" : undefined,
           paddingTop: "15px",
           paddingLeft: matchesSM ? undefined : "5em",
           paddingRight: matchesSM ? undefined : "5em",
           alignItems: "center",
-          height: matchesSM ? undefined : "100vh",
+          height: matchesSM ? undefined : "100%",
         }}
       >
         <Box>
@@ -58,6 +64,7 @@ const Contact: NextPage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: matchesSM ? "center" : undefined,
+            marginTop: matchesMD ? "30px" : undefined,
           }}
         >
           <Typography
@@ -86,8 +93,9 @@ const Contact: NextPage = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              width: matchesSM ? 350 : 800,
+              width: matchesSM ? 350 : matchesMD ? 700 : 800,
               gap: 2,
+
               marginBottom: matchesSM ? "10px" : undefined,
             }}
           >

@@ -5,12 +5,12 @@ import { tokens } from "../../src/utils/theme";
 
 const Index = () => {
   const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesSM = useMediaQuery("(max-width:600px)");
   const colors = tokens(theme.palette.mode);
   return (
     <Box
       sx={{
-        paddingTop: "2.5em",
+        paddingTop: matchesSM ? undefined : "2.5em",
         height: "100%",
       }}
     >

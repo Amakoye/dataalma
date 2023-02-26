@@ -10,7 +10,7 @@ import { tokens } from "../../../utils/theme";
 
 const Services = () => {
   const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesSM = useMediaQuery("(max-width:600px)");
   const colors = tokens(theme.palette.mode);
   const router = useRouter();
   const servicesRoute = router.pathname === "/services";
@@ -28,7 +28,13 @@ const Services = () => {
         borderTopRightRadius: matchesSM ? 20 : 40,
       }}
     >
-      <Typography variant="h2" textAlign="center" color="primary" mb="20px">
+      <Typography
+        variant="h2"
+        textAlign="center"
+        color="primary"
+        mt={5}
+        mb="20px"
+      >
         Services
       </Typography>
       <ServicesContainer>

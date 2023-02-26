@@ -21,7 +21,7 @@ const About = () => {
         paddingRight: matchesSM ? undefined : "5em",
         background: colors.peranoBlue[100],
         alignItems: "center",
-        height: "100vh",
+        height: matchesSM ? "100%" : "100vh",
       }}
     >
       <Box
@@ -29,12 +29,14 @@ const About = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: matchesSM ? "center" : undefined,
+          textAlign: "justify",
         }}
       >
         <Typography
           variant="h2"
           color="primary"
           textAlign={matchesSM ? "center" : undefined}
+          mt={5}
         >
           About us
         </Typography>
@@ -47,13 +49,10 @@ const About = () => {
           }}
         >
           Data Alma specializes in IT consulting. We provide a wide range of
-          IT-related services including business analytics,
-          {!matchesSM && <br />}
-          data protection and privacy services, network design and
-          implementation, cloud solutions, cybersecurity, and project
-          {!matchesSM && <br />}management. We have a team of experienced
-          professionals who work closely with clients to understand their unique{" "}
-          {!matchesSM && <br />}
+          IT-related services including business analytics, data protection and
+          privacy services, network design and implementation, cloud solutions,
+          cybersecurity, and project management. We have a team of experienced
+          professionals who work closely with clients to understand their unique
           needs and provide customized solutions to improve efficiency and
           productivity.
         </Typography>
@@ -66,10 +65,9 @@ const About = () => {
           }}
         >
           Our team of experts uses cutting-edge technology, such as machine
-          learning and natural language processing, to help
-          {!matchesSM && <br />} clients gain a deeper understanding of their
-          customers, markets, and operations. They help businesses increase
-          revenue, {!matchesSM && <br />} improve efficiency, and gain a
+          learning and natural language processing, to help clients gain a
+          deeper understanding of their customers, markets, and operations. They
+          help businesses increase revenue, improve efficiency, and gain a
           competitive advantage.
         </Typography>
         <Typography
@@ -81,22 +79,21 @@ const About = () => {
           }}
         >
           Data Alma is not only dedicated to providing their clients with the
-          most innovative and accurate analytics and secure
-          {!matchesSM && <br />} solutions on the market but also offer ongoing
-          support and maintenance to ensure that our clients' systems are always
-          {!matchesSM && <br />}
-          up-to-date and running smoothly.
+          most innovative and accurate analytics and secure solutions on the
+          market but also offer ongoing support and maintenance to ensure that
+          our clients' systems are always up-to-date and running smoothly.
         </Typography>
       </Box>
-
-      <Box>
-        <Image
-          height={matchesSM ? 300 : undefined}
-          style={{ borderRadius: "50%" }}
-          src={AboutImage}
-          alt="Digital presentation"
-        />
-      </Box>
+      {!useMediaQuery(theme.breakpoints.between(768, 1100)) && (
+        <Box>
+          <Image
+            height={matchesSM ? 300 : undefined}
+            style={{ borderRadius: "50%" }}
+            src={AboutImage}
+            alt="Digital presentation"
+          />
+        </Box>
+      )}
     </Box>
   );
 };

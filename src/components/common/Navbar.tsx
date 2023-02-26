@@ -12,9 +12,9 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import NextLink from "./NextLink";
 
 import { useMediaQuery, useTheme } from "@mui/material";
 import logo from "../../assets/logo.png";
@@ -72,9 +72,11 @@ export default function Navbar(props: Props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.link} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={item.name} />
-            </ListItemButton>
+            <NextLink passHref href={item.link}>
+              <ListItemButton>
+                <ListItemText primary={item.name} />
+              </ListItemButton>
+            </NextLink>
           </ListItem>
         ))}
       </List>
@@ -123,7 +125,6 @@ export default function Navbar(props: Props) {
                   passHref
                   key={item.link}
                   style={{
-                    textDecoration: "none",
                     color:
                       router.pathname === item.link
                         ? `${colors.cerulanBlue[600]}`
