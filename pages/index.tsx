@@ -16,7 +16,7 @@ import AboutImage from "../src/assets/About.png";
 import HeroImage from "../src/assets/HomepageHeroImage.gif";
 import ContactImage from "../src/assets/Service_ 24_7.gif";
 import Learnmore from "../src/components/common/Learnmore";
-import Services from "../src/components/pages/Services";
+import Services from "../src/components/pages/services/Services";
 import { tokens } from "../src/utils/theme";
 import { validationSchema } from "../src/utils/utils";
 const Home: NextPage = () => {

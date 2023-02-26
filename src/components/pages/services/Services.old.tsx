@@ -5,14 +5,14 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { tokens } from "../../../utils/theme";
 import AiImage from "../../assets/Ai.png";
 import AnalyticsImage from "../../assets/Analytics.png";
 import ApplicationdevImage from "../../assets/Applicationdev.png";
 import ConsultingImage from "../../assets/Consulting.png";
 import DatabasedevImage from "../../assets/Databasedev.png";
 import ResearchImage from "../../assets/Research.png";
-import { tokens } from "../../utils/theme";
-import Learnmore from "../common/Learnmore";
+import Learnmore from "../../common/Learnmore";
 
 const Services = () => {
   const theme = useTheme();
