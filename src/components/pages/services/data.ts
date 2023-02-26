@@ -13,7 +13,8 @@ const services: Service[] = [
     paragraphs: [
       "Data Alma is a specialized cybersecurity firm that provides privacy and digital security solutions to marginalized and minority communities. We identify and mitigate cyber threats that disproportionately affect marginalized communities.",
       `Our Services include: \n• Privacy and security assessments \n• Digital security training \n• Incidence Response.`,
-      "Our team also provides education and awareness programs and works closely with community based organizations (CBOs), Non-government Organizations (NGOs) and other groups that work in the Human Rights field to provide capacity-building programs and resources. ",
+      "Our team also provides education and awareness programs and works closely with community based organizations (CBOs), Non-government Organizations (NGOs) and other groups that work in the Human Rights field to provide capacity-building programs and resources.",
+      "We are committed to ensuring that everyone enjoys their right to privacy and security online and that marginalized communities have the necessary resources and support to stay safe and secure online.",
     ],
   },
   {
@@ -23,7 +24,7 @@ const services: Service[] = [
     paragraphs: [
       "We offer Cyber security Consultancy services to all Human rights activists and defenders. Our services are not limited to risk assessments, penetration testing, incident response and compliance consulting.",
       "We provide practical, cost-effective solutions to mitigate identified risks and help clients maintain compliance with industry regulations.",
-      " Our experienced team stays up-to-date with the latest industry trends and threats to ensure our clients’ security measures are effective and in line with industry best practices. Contact us to learn more.",
+      "Our experienced team stays up-to-date with the latest industry trends and threats to ensure our clients’ security measures are effective and in line with industry best practices. Contact us to learn more.",
     ],
   },
   {
@@ -47,12 +48,19 @@ const services: Service[] = [
   {
     title: "Cyber Security solutions using AI",
     image: AiImage,
-    paragraphs: [],
+    paragraphs: [
+      "Data Alma uses artificial intelligence (AI) and machine learning (ML) to provide advanced cybersecurity services to businesses of all sizes. Our team of experts is experienced in the field of cybersecurity and dedicated to helping organizations stay ahead of the constantly evolving threat landscape.",
+      "Our AI-based solutions provide a proactive approach to cybersecurity by detecting and responding to threats in real time, identifying even the most sophisticated cyber-attacks. Contact us to learn more about our advanced threat detection and incident response capabilities.",
+    ],
   },
   {
     title: "Technology research",
     image: ResearchImage,
-    paragraphs: [],
+    paragraphs: [
+      "We offer cutting-edge research services related to cybersecurity and artificial intelligence (AI) to help organizations stay ahead of the latest threats and advancements.",
+      "We conduct a wide range of research services, including threat intelligence, vulnerability assessments, and market analysis.",
+      "At Data Alma, we tailor our research services to meet each client's specific requirements and works closely with them to provide deep insights and informed decisions about their security strategies and investments. Contact us today to learn more about ourresearch services and how we can benefit your organization.",
+    ],
   },
 ];
 
