@@ -55,7 +55,7 @@ function Testmonials() {
       </Typography>
       <Swiper
         style={{
-          width: matchesSM ? "60%" : "40%",
+          width: matchesSM ? "100%" : "40%",
         }}
         slidesPerView={1}
         pagination={{ clickable: true }}
