@@ -8,6 +8,7 @@ import KICTANETLogo from "../../../assets/partners/KICTANET-logo.png";
 
 // Import Swiper styles
 import Image from "next/image";
+import { useMemo } from "react";
 import SwiperCore, {
   Autoplay,
   EffectFade,
@@ -19,22 +20,24 @@ import "swiper/css/pagination";
 
 // import required modules
 
-const data = [
-  {
-    logo: bloggersAssociationLogo,
-    name: "Bloggers Association of Kenya",
-  },
-  {
-    logo: empirisLogo,
-    name: "KICTANET",
-  },
-  {
-    logo: KICTANETLogo,
-    name: "KICTANET",
-  },
-];
-
 function Testmonials() {
+  const data = useMemo(() => {
+    return [
+      {
+        logo: bloggersAssociationLogo,
+        name: "Bloggers Association of Kenya",
+      },
+      {
+        logo: empirisLogo,
+        name: "KICTANET",
+      },
+      {
+        logo: KICTANETLogo,
+        name: "KICTANET",
+      },
+    ];
+  }, []);
+
   SwiperCore.use([Autoplay, Navigation, Pagination]);
   return (
     <Stack
