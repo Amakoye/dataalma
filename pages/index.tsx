@@ -9,6 +9,7 @@ import HeroImage from "../src/assets/HomepageHeroImage.gif";
 import Learnmore from "../src/components/common/Learnmore";
 import Contact from "../src/components/pages/contact/Contact";
 import Services from "../src/components/pages/services/Services";
+import Testmonials from "../src/components/pages/testmonials/TestMonials";
 import { tokens } from "../src/utils/theme";
 import About from "./about";
 const Home: NextPage = () => {
@@ -90,6 +91,8 @@ const Home: NextPage = () => {
           </Box>
         )}
       </Box>
+      {/* Clients and partners */}
+      <Testmonials />
       {/* Services */}
       <Services />
       {/* About */}

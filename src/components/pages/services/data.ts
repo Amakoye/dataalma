@@ -14,7 +14,7 @@ const services: Service[] = [
       "Data Alma is a specialized cybersecurity firm that provides privacy and digital security solutions to marginalized and minority communities. We identify and mitigate cyber threats that disproportionately affect marginalized communities.",
       `Our Services include: \n• Privacy and security assessments \n• Digital security training \n• Incidence Response.`,
       "Our team also provides education and awareness programs and works closely with community based organizations (CBOs), Non-government Organizations (NGOs) and other groups that work in the Human Rights field to provide capacity-building programs and resources.",
-      "We are committed to ensuring that everyone enjoys their right to privacy and security online and that marginalized communities have the necessary resources and support to stay safe and secure online.",
+      `We are committed to ensuring that everyone enjoys their right to privacy and security online and that marginalized communities have the necessary resources and support to stay safe and secure online.`,
     ],
   },
   {
@@ -24,7 +24,7 @@ const services: Service[] = [
     paragraphs: [
       "We offer Cyber security Consultancy services to all Human rights activists and defenders. Our services are not limited to risk assessments, penetration testing, incident response and compliance consulting.",
       "We provide practical, cost-effective solutions to mitigate identified risks and help clients maintain compliance with industry regulations.",
-      "Our experienced team stays up-to-date with the latest industry trends and threats to ensure our clients’ security measures are effective and in line with industry best practices. Contact us to learn more.",
+      `Our experienced team stays up-to-date with the latest industry trends and threats to ensure our clients’ security measures are effective and in line with industry best practices. Contact us to learn more.`,
     ],
   },
   {
@@ -33,7 +33,7 @@ const services: Service[] = [
     paragraphs: [
       "We specialize in providing cybersecurity services and training to protect businesses from cyber threats.",
       "Our team of experts is experienced in identifying and mitigating various forms of cyberattacks.",
-      "We offer services such as threat management, incident response, penetration testing, compliance consulting, and comprehensive training programs to educate staff on maintaining a secure network. Contact them to learn more.",
+      "We offer services such as threat management, incident response, penetration testing, compliance consulting, and comprehensive training programs to educate staff on maintaining a secure network. Contact us to learn more.",
     ],
   },
   {
@@ -69,6 +69,7 @@ type Service = {
   image: StaticImageData;
   paragraphs: string[];
   lists?: string[];
+  link?: HTMLAnchorElement;
 };
 
 export { services };
