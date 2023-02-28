@@ -81,9 +81,13 @@ const ServiceContainer = styled(
   textAlign: "justify",
   gap: useMediaQuery(theme.breakpoints.down("sm")) ? "0.5em" : "2em",
   padding: useMediaQuery(theme.breakpoints.down("sm")) ? "1em" : "2em",
-  border: `1px solid ${theme.palette.primary.dark}`,
+  background: "#fff",
   borderRadius: "0.5em",
   cursor: "pointer",
+  transition: theme.transitions.create("all 400ms ease-in"),
+  "&:hover": {
+    border: `1px solid ${theme.palette.primary.main}`,
+  },
 }));
 
 const ServiceImageContainer = styled(
