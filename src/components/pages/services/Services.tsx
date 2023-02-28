@@ -87,6 +87,7 @@ const ServiceContainer = styled(
   transition: theme.transitions.create("all 400ms ease-in"),
   "&:hover": {
     border: `1px solid ${theme.palette.primary.main}`,
+    background: "transparent",
   },
 }));
 
