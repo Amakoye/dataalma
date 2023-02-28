@@ -10,13 +10,15 @@ import { tokens } from "../../src/utils/theme";
 const About = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down(769));
+  const matchesMD = useMediaQuery(theme.breakpoints.between(768, 1500));
   return (
     <Box
       sx={{
         display: "flex",
         flexDirection: matchesSM ? "column" : "row",
         paddingTop: "15px",
+        paddingBottom: "40px",
         paddingLeft: matchesSM ? undefined : "5em",
         paddingRight: matchesSM ? undefined : "5em",
         background: colors.peranoBlue[100],
@@ -84,7 +86,7 @@ const About = () => {
           our clients' systems are always up-to-date and running smoothly.
         </Typography>
       </Box>
-      {!useMediaQuery(theme.breakpoints.between(768, 1100)) && (
+      {!matchesMD && (
         <Box>
           <Image
             height={matchesSM ? 300 : undefined}

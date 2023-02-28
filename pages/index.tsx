@@ -7,14 +7,14 @@ import Image from "next/image";
 import Typewriter from "typewriter-effect";
 import HeroImage from "../src/assets/HomepageHeroImage.gif";
 import Learnmore from "../src/components/common/Learnmore";
+import Contact from "../src/components/pages/contact/Contact";
 import Services from "../src/components/pages/services/Services";
 import { tokens } from "../src/utils/theme";
 import About from "./about";
-import Contact from "./contact";
 const Home: NextPage = () => {
   const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesMD = useMediaQuery(theme.breakpoints.between(768, 1025));
+  const matchesSM = useMediaQuery(theme.breakpoints.down(769));
+  const matchesMD = useMediaQuery(theme.breakpoints.between(769, 1300));
   const colors = tokens(theme.palette.mode);
 
   return (
