@@ -1,3 +1,4 @@
+import { useMediaQuery, useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -21,6 +22,9 @@ import "swiper/css/pagination";
 // import required modules
 
 function Testmonials() {
+  const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down(769));
+
   const data = useMemo(() => {
     return [
       {
@@ -51,7 +55,7 @@ function Testmonials() {
       </Typography>
       <Swiper
         style={{
-          width: "40%",
+          width: matchesSM ? "60%" : "40%",
         }}
         slidesPerView={1}
         pagination={{ clickable: true }}
