@@ -46,6 +46,10 @@ const navItems = [
     name: "Contact",
     link: "/contact",
   },
+  {
+    name: "Get help",
+    link: "/help",
+  },
 ];
 
 export default function Navbar(props: Props) {

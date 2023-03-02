@@ -32,7 +32,7 @@ const Contact = () => {
           }}
         />
       ),
-      link: "hello@dataalma.com",
+      link: "hello[@]dataalma.com",
     },
     {
       title: "Phone",
