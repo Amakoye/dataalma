@@ -4,11 +4,14 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import { useMediaQuery, useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import emailjs from "emailjs-com";
 import { useFormik } from "formik";
+import { useEffect, useState } from "react";
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineEmail } from "react-icons/md";
 import { tokens } from "../../../utils/theme";
@@ -18,36 +21,11 @@ const Contact = () => {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down(769));
   const matchesMD = useMediaQuery(theme.breakpoints.between(769, 1300));
+  const [isSending, setisSending] = useState(false);
+  const [error, setError] = useState(false);
+  const [sentSuccess, setSentSuccess] = useState("");
   const colors = tokens(theme.palette.mode);
 
-  console.log(process.env.NEXT_PUBLIC_EMAIL);
-
-  /*  const tranporter = nodemailer.createTransport({
-    port: 465,
-    host: "smtp.gmail.com",
-    auth: {
-      user: process.env.email,
-      pass: process.env.password,
-    },
-    secure: true,
-  }); */
-
-  const mailData = {
-    from: process.env.email,
-    to: "charlesamakoye@gmail.com",
-    subject: "message",
-    /*  text: req?.body.message,
-    html: <div>{req?.body.message}</div>, */
-  };
-
-  /*  tranporter.sendMail(mailData, function (err: any, info: any) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(info);
-    }
-  });
- */
   const contactOptions = [
     {
       title: "Email",
@@ -84,9 +62,34 @@ const Contact = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      setisSending(true);
+      emailjs
+        .send(
+          process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID as string,
+          process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID as string,
+          values,
+          process.env.NEXT_PUBLIC_EMAIL_API_KEY as string
+        )
+        .then(
+          (res) => {
+            setisSending(false);
+            setSentSuccess("Message sent successfully");
+          },
+          (err) => {
+            setError(true);
+          }
+        );
     },
   });
+
+  useEffect(() => {
+    if (sentSuccess) {
+      setTimeout(() => {
+        setSentSuccess("");
+        setError(false);
+      }, 3000);
+    }
+  }, [sentSuccess]);
 
   const { values, touched, handleChange, errors, getFieldProps, handleSubmit } =
     formik;
@@ -171,6 +174,26 @@ const Contact = () => {
             marginBottom: matchesSM ? "10px" : undefined,
           }}
         >
+          {isSending && (
+            <CircularProgress
+              size={20}
+              thickness={4}
+              sx={{ alignSelf: "center" }}
+            />
+          )}
+          {sentSuccess && (
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: "0.875rem",
+                color: error
+                  ? theme.palette.error.main
+                  : theme.palette.success.main,
+              }}
+            >
+              {sentSuccess}
+            </Typography>
+          )}
           <TextField
             InputLabelProps={{
               shrink: true,
