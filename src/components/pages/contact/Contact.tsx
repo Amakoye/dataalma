@@ -20,6 +20,34 @@ const Contact = () => {
   const matchesMD = useMediaQuery(theme.breakpoints.between(769, 1300));
   const colors = tokens(theme.palette.mode);
 
+  console.log(process.env.NEXT_PUBLIC_EMAIL);
+
+  /*  const tranporter = nodemailer.createTransport({
+    port: 465,
+    host: "smtp.gmail.com",
+    auth: {
+      user: process.env.email,
+      pass: process.env.password,
+    },
+    secure: true,
+  }); */
+
+  const mailData = {
+    from: process.env.email,
+    to: "charlesamakoye@gmail.com",
+    subject: "message",
+    /*  text: req?.body.message,
+    html: <div>{req?.body.message}</div>, */
+  };
+
+  /*  tranporter.sendMail(mailData, function (err: any, info: any) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(info);
+    }
+  });
+ */
   const contactOptions = [
     {
       title: "Email",
