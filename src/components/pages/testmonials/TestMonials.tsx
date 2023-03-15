@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import bloggersAssociationLogo from "../../../assets/partners/bloggers-association-of-kenya-logo.png";
 import empirisLogo from "../../../assets/partners/Empiris_Creative-Communication-Ltd.png";
 import KICTANETLogo from "../../../assets/partners/KICTANET-logo.png";
+import SouthendLogo from "../../../assets/partners/southendtech.png";
 
 // Import Swiper styles
 import Image from "next/image";
@@ -38,6 +39,10 @@ function Testmonials() {
       {
         logo: KICTANETLogo,
         name: "KICTANET",
+      },
+      {
+        logo: SouthendLogo,
+        name: "Southend Tech ltd.",
       },
     ];
   }, []);
