@@ -7,6 +7,7 @@ import bloggersAssociationLogo from "../../../assets/partners/bloggers-associati
 import empirisLogo from "../../../assets/partners/Empiris_Creative-Communication-Ltd.png";
 import KICTANETLogo from "../../../assets/partners/KICTANET-logo.png";
 import SouthendLogo from "../../../assets/partners/southendtech.png";
+import SproutedHopeLogo from "../../../assets/partners/sprouted_hope.png";
 
 // Import Swiper styles
 import Image from "next/image";
@@ -43,6 +44,10 @@ function Testmonials() {
       {
         logo: SouthendLogo,
         name: "Southend Tech ltd.",
+      },
+      {
+        logo: SproutedHopeLogo,
+        name: "Sprouted Hope",
       },
     ];
   }, []);
