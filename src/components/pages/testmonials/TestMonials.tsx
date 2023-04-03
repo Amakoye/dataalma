@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Swiper, SwiperSlide } from "swiper/react";
 import bloggersAssociationLogo from "../../../assets/partners/bloggers-association-of-kenya-logo.png";
 import empirisLogo from "../../../assets/partners/Empiris_Creative-Communication-Ltd.png";
+import EnhanceMind from "../../../assets/partners/Enhance-mind.png";
 import KICTANETLogo from "../../../assets/partners/KICTANET-logo.png";
 import SouthendLogo from "../../../assets/partners/southendtech.png";
 import SproutedHopeLogo from "../../../assets/partners/sprouted_hope.png";
@@ -48,6 +49,10 @@ function Testmonials() {
       {
         logo: SproutedHopeLogo,
         name: "Sprouted Hope",
+      },
+      {
+        logo: EnhanceMind,
+        name: "Enhance Mind Artificial Intelligence Conference",
       },
     ];
   }, []);
